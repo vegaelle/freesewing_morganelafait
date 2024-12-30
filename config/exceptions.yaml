@@ -83,3 +83,5 @@ packageJson:
   walburga: *starf
   yuri:
     author: biou (https://github.com/biou)
+  egg_bodice:
+    author: Gaëlle Robardet-Nicolas (https://github.com/vegaelle)
