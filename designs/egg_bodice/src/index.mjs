@@ -4,13 +4,14 @@ import { Design } from '@freesewing/core'
 import { i18n } from '../i18n/index.mjs'
 import { data } from '../data.mjs'
 // Parts
-import { box } from './box.mjs'
+import { front } from './front.mjs'
+import { back } from './back.mjs'
 
 // Create new design
 const Egg_bodice = new Design({
   data,
-  parts: [box],
+  parts: [front, back],
 })
 
 // Named exports
-export { box, i18n, Egg_bodice }
+export { front, back, i18n, Egg_bodice }

@@ -1,8 +1,8 @@
 {
   "name": "@freesewing/egg_bodice",
-  "version": "3.2.0",
-  "description": "A FreeSewing pattern that needs a description",
-  "author": "Joost De Cock <joost@joost.at> (https://github.com/joostdecock)",
+  "version": "0.1.0",
+  "description": "A bodice block with bust darst and sleeves",
+  "author": "Gaëlle Robardet-Nicolas (https://github.com/vegaelle)",
   "homepage": "https://freesewing.org/",
   "repository": "github:freesewing/freesewing",
   "license": "MIT",
