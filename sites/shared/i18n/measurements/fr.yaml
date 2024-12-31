@@ -1,4 +1,6 @@
 measurements: Mensurations
+acrossBack: Carrure dos
+acrossFront: Carrure devant
 ankle: Tour de cheville
 biceps: Tour de bras
 bustFront: Largeur de poitrine avant
@@ -18,6 +20,7 @@ hpsToWaistFront: Longueur épaule-taille devant
 inseam: Longueur d'entrejambe
 knee: Tour de genou
 neck: Tour de cou
+neckline: Tour d'encolure
 seat: Tour de bassin
 seatBack: Bassin arrière
 crotchDepth: Hauteur de fourche
@@ -32,6 +35,8 @@ waistBack: Taille arrière
 waistToArmpit: De la taille à l'aisselle
 waistToFloor: Hauteur de taille
 waistToHips: Hauteur taille hanche
+waistToNecklineBack: Hauteur encolure dos
+waistToNecklineFront: Hauteur encolure devant
 waistToKnee: Hauteur taille genou
 waistToSeat: Hauteur taille bassin
 waistToUnderbust: Hauteur taille sous-poitrine

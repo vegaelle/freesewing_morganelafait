@@ -1,5 +1,7 @@
 /* A list of all measurements used by FreeSewing */
 export const measurements = [
+  'acrossFront',
+  'acrossBack',
   'ankle',
   'biceps',
   'bustFront',
@@ -20,6 +22,7 @@ export const measurements = [
   'inseam',
   'knee',
   'neck',
+  'neckline',
   'seat',
   'seatBack',
   'shoulderSlope',
@@ -34,6 +37,8 @@ export const measurements = [
   'waistToFloor',
   'waistToHips',
   'waistToKnee',
+  'waistToNecklineFront',
+  'waistToNecklineBack',
   'waistToSeat',
   'waistToUnderbust',
   'waistToUpperLeg',

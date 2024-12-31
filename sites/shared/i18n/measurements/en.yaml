@@ -1,4 +1,6 @@
 measurements: Measurements
+acrossBack: Across back
+acrossFront: Across Front
 ankle: Ankle circumference
 biceps: Biceps circumference
 bustFront: Bust front
@@ -18,6 +20,7 @@ hpsToWaistFront: HPS to waist front
 inseam: Inseam
 knee: Knee circumference
 neck: Neck circumference
+neckline: Neckline circumference
 seat: Seat circumference
 seatBack: Seat back
 crotchDepth: Crotch depth
@@ -32,6 +35,8 @@ waistBack: Waist back
 waistToArmpit: Waist to armpit
 waistToFloor: Waist to floor
 waistToHips: Waist to hips
+waistToNecklineBack: Waist to neckline back
+waistToNecklineFront: Waist to neckline front
 waistToKnee: Waist to knee
 waistToSeat: Waist to seat
 waistToUnderbust: Waist to underbust
