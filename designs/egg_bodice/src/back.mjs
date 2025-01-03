@@ -208,33 +208,33 @@ function draftBack({
     )
   }
 
+  // control points for body lines
+  points.seatSBCp1 = points.seatSB.shift(90, points.waistSB.dy(points.seatSB) / 2)
+
+  points.armpitBackCp1 = points.armpitBack.shift(
+    90 + points.waistSB.angle(points.armpitBack),
+    points.acrossBack.dx(points.armpitBack) / 1.5
+  )
+  points.acrossBackCp2 = points.acrossBack.shift(
+    -90,
+    points.acrossBack.dy(points.armpitBack) / 1.5
+  )
+  points.acrossBackCp1 = points.acrossBack.shift(
+    90,
+    points.shoulderTipBack.dy(points.acrossBack) / 4
+  )
+  points.shoulderTipBackCp2 = points.shoulderTipBack.shift(
+    -90 - measurements.shoulderSlope,
+    points.shoulderTipBack.dy(points.acrossBack) / 4
+  )
+
+  points.HPSBackCp1 = points.HPSBack.shift(
+    -90 - measurements.shoulderSlope,
+    points.HPSBack.dy(points.necklineCB)
+  )
+  points.necklineCBCp2 = points.necklineCB.shift(0, points.necklineCB.dx(points.HPSBack) / 1.5)
+
   if (options.drawBodyLines) {
-    // control points for body lines
-    points.seatSBCp1 = points.seatSB.shift(90, points.waistSB.dy(points.seatSB) / 2)
-
-    points.armpitBackCp1 = points.armpitBack.shift(
-      90 + points.waistSB.angle(points.armpitBack),
-      points.acrossBack.dx(points.armpitBack) / 1.5
-    )
-    points.acrossBackCp2 = points.acrossBack.shift(
-      -90,
-      points.acrossBack.dy(points.armpitBack) / 1.5
-    )
-    points.acrossBackCp1 = points.acrossBack.shift(
-      90,
-      points.shoulderTipBack.dy(points.acrossBack) / 4
-    )
-    points.shoulderTipBackCp2 = points.shoulderTipBack.shift(
-      -90 - measurements.shoulderSlope,
-      points.shoulderTipBack.dy(points.acrossBack) / 4
-    )
-
-    points.HPSBackCp1 = points.HPSBack.shift(
-      -90 - measurements.shoulderSlope,
-      points.HPSBack.dy(points.necklineCB)
-    )
-    points.necklineCBCp2 = points.necklineCB.shift(0, points.necklineCB.dx(points.HPSBack) / 1.5)
-
     paths.body_lines = new Path()
       .move(points.waistCB)
       .line(points.hipsCB)
@@ -312,6 +312,29 @@ function draftBack({
     .line(points.waistCB)
     .close()
     .attr('class', 'fabric')
+
+  // Store some measurements for the sleeve
+  let upperArmhole = new Path()
+    .move(points.acrossBack)
+    .curve(points.acrossBackCp1, points.shoulderTipBackCp2, points.shoulderTipBack)
+  let lowerArmhole = new Path()
+    .move(points.armpitBack)
+    .curve(points.armpitBackCp1, points.acrossBackCp2, points.acrossBack)
+  let lowerArmholeLength = lowerArmhole.length()
+  let armholeLength = lowerArmholeLength + upperArmhole.length()
+  store.set('armholeLengthBack', armholeLength)
+  store.set('armholeHeightBack', points.shoulderTipBack.dy(points.armpitBack))
+
+  let upperArmholeEase = new Path()
+    .move(points.acrossEaseBack)
+    .curve(points.acrossEaseBackCp1, points.shoulderTipEaseBackCp2, points.shoulderTipEaseBack)
+  let lowerArmholeEase = new Path()
+    .move(points.armpitEaseBack)
+    .curve(points.armpitEaseBackCp1, points.acrossEaseBackCp2, points.acrossEaseBack)
+  let lowerArmholeEaseLength = lowerArmholeEase.length()
+  let armholeEaseLength = lowerArmholeEaseLength + upperArmholeEase.length()
+  store.set('armholeLengthEaseBack', armholeEaseLength)
+  store.set('armholeHeightEaseBack', points.shoulderTipEaseBack.dy(points.armpitEaseBack))
 
   if (complete) {
     paths.waistLine = new Path().move(points.waistCB).line(points.waistEaseSB).attr('class', 'help')
@@ -411,7 +434,6 @@ export const back = {
     armholeEase: { pct: 0, min: 0, max: 15, menu: 'fit' },
     chestEase: { pct: 5, min: -4, max: 20, menu: 'fit' },
     collarEase: { pct: 5, min: 0, max: 50, menu: 'fit' },
-    cuffEase: { pct: 10, min: 0, max: 30, menu: 'fit' },
     seatEase: { pct: 5, min: -4, max: 20, menu: 'fit' },
     waistEase: { pct: 5, min: -4, max: 20, menu: 'fit' },
     // Style

@@ -6,12 +6,13 @@ import { data } from '../data.mjs'
 // Parts
 import { front } from './front.mjs'
 import { back } from './back.mjs'
+import { sleeve } from './sleeve.mjs'
 
 // Create new design
 const Egg_bodice = new Design({
   data,
-  parts: [front, back],
+  parts: [front, back, sleeve],
 })
 
 // Named exports
-export { front, back, i18n, Egg_bodice }
+export { front, back, sleeve, i18n, Egg_bodice }
